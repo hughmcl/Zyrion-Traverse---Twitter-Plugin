@@ -1,8 +1,14 @@
 <TwitterKeyfile>
-    <HughMcLenaghan>
-        <consumerKey>YourConsumerKeyGoesHere</consumerKey>
-        <consumerSecret>YourConsumerSecretGoesHere</consumerSecret>
-        <accessToken>YourAccessTokenGoesHere</accessToken>
-        <accessTokenSecret>YourAccessTokenSecretGoesHere</accessTokenSecret>
-    </HughMcLenaghan>
+    <Example1>
+        <consumerKey>Example1ConsumerKeyGoesHere</consumerKey>
+        <consumerSecret>Example1ConsumerSecretGoesHere</consumerSecret>
+        <accessToken>Example1AccessTokenGoesHere</accessToken>
+        <accessTokenSecret>Example1AccessTokenSecretGoesHere</accessTokenSecret>
+    </Example1>
+    <Example2>
+        <consumerKey>Example2ConsumerKeyGoesHere</consumerKey>
+        <consumerSecret>Example2ConsumerSecretGoesHere</consumerSecret>
+        <accessToken>Example2AccessTokenGoesHere</accessToken>
+        <accessTokenSecret>Example2AccessTokenSecretGoesHere</accessTokenSecret>
+    </Example2>
 </TwitterKeyfile>
