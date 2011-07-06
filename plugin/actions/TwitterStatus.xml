@@ -1,0 +1,9 @@
+<ActionScriptConfig>
+    <name>TwitterStatus - Username</name>
+    <rootScript>TwitterStatus.pl</rootScript>
+    <parameters>--keyfile --keyuser ${recipient} --status "[${device_name}]-${test_name}-(${current_user_severity})"</parameters>
+    <addOutputToComment>false</addOutputToComment>
+    <waitForTerminate>true</waitForTerminate>
+    <timeout>60</timeout>
+</ActionScriptConfig>
+    

@@ -1,0 +1,14 @@
+<TwitterKeyfile>
+    <Username1>
+        <consumerKey>Username1ConsumerKeyHere</consumerKey>
+        <consumerSecret>Username1ConsumerSecretHere</consumerSecret>
+        <accessToken>Username1accessTokenHere</accessToken>
+        <accessTokenSecret>Username1accessTokenSecretHere</accessTokenSecret>
+    </Username1>
+    <Username2>
+        <consumerKey>Username2ConsumerKeyHere</consumerKey>
+        <consumerSecret>Username2ConsumerSecretHere</consumerSecret>
+        <accessToken>Username2accessTokenHere</accessToken>
+        <accessTokenSecret>Username2accessTokenSecretHere</accessTokenSecret>
+    </Username2>
+</TwitterKeyfile>

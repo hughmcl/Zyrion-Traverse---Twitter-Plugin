@@ -18,7 +18,7 @@
     my @result;
     my $results;
     my $travHome = "/usr/local/traverse";
-    my $homeDir = "$travHome/plugin/actions/Twitter";
+    my $homeDir = "$travHome/plugin/actions";
     my $PROGNAME   = "TwitterStatus.pl";
     my $logFile = "/tmp/debug-$PROGNAME.log";
     my $dateTime = `/bin/date +%Y/%m/%d:%H:%M:%S`;
@@ -29,7 +29,7 @@
                        access_token => "",
                        access_token_secret => "", };
     
-    my $keyfileName = "TwitterKeyfile.xml";
+    my $keyfileName = "TwitterStatusKeyfile.xml";
     my $keyFile;
     my $keyUser = "";
     my $DEBUG = 0;
@@ -115,6 +115,20 @@
    
    
    
+   sub codeTime {
+       my $string = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+-=_!@#$%^&*():;<>~";
+       my $code = "";
+       my $time = time();
+       while (int($time) > 0) {
+           my $time1 = $time % length($string);
+           $time = int($time / length($string));
+           $code .= substr($string,int($time1),1);
+       }
+       return($code);
+   }
+   
+   
+   
    sub readAccessInfo {
        my $info = $_[0];
        my $keyFile = $_[1];
@@ -149,8 +163,9 @@
        
        return;
    }
-       
     
+    
+    my @args = @ARGV;
     
     # Get command line args
     my $cstat = process_arguments();
@@ -159,6 +174,8 @@
       show_help();
       exit(1);
     }
+    
+    logIt("params: ".Dumper(\@args)) if ($DEBUG);
     
     # check if the user has identified that they want to use a keyfile
     # if so we're going to read the access credentials from that.
@@ -179,6 +196,19 @@
         print Dumper($accessInfo);
         logIt("accessInfo: ".Dumper($accessInfo));
     }
+    
+    # now tweak the status text
+    $status =~ s/\"//g;       # remove "'s
+    
+    # create a coded timecode, so that messages are unique, since
+    # twitter doesn't allow the same message 2 times.
+    my $codedTime = codeTime();
+    logIt("codedTime: $codedTime") if ($DEBUG);
+    
+    # append the timecode to the end of the status, also ensure that the
+    # 140 character limit is not exceeded.
+    $status = substr($status,0,131)." [$codedTime]";
+    logIt("sending status: $status") if ($DEBUG);
     
     # now we need to open a twitter connection
     $twitt = Net::Twitter->new(
