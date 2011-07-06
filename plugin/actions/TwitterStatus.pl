@@ -147,7 +147,7 @@
        my $ref = $xs->XMLin("$homeDir/$keyFile");
  
        # now pull out the test information, so we can work on provisioning.
-       my %keys = %{$ref->{"TwitterKeyfile"}};
+       my %keys = %{$ref->{"TwitterStatusKeyfile"}};
 
        if (exists($keys{$keyUser})) {
           my %userInfo = %{$keys{$keyUser}};

@@ -1,4 +1,4 @@
-<TwitterKeyfile>
+<TwitterStatusKeyfile>
     <Username1>
         <consumerKey>Username1ConsumerKeyHere</consumerKey>
         <consumerSecret>Username1ConsumerSecretHere</consumerSecret>
@@ -11,4 +11,4 @@
         <accessToken>Username2accessTokenHere</accessToken>
         <accessTokenSecret>Username2accessTokenSecretHere</accessTokenSecret>
     </Username2>
-</TwitterKeyfile>
+</TwitterStatusKeyfile>
